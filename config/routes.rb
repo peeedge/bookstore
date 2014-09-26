@@ -1,12 +1,16 @@
 Bookstore::Application.routes.draw do
-get "/books" => "books#index", as: 'books'
-get "/books/new" => "books#new", as: 'new_book'
-get "/books/:id" => "books#show", as: 'book'
-post "/books" => "books#create"
-get "/books/:id/edit" => "books#edit", as: 'edit_book'
-patch "/books/:id" => "books#update"
-delete "/books/:id" => "books#destroy"
+#get "/books" => "books#index", as: 'books'
+#get "/books/new" => "books#new", as: 'new_book'
+#get "/books/:id" => "books#show", as: 'book'
+#post "/books" => "books#create"
+#get "/books/:id/edit" => "books#edit", as: 'edit_book'
+#patch "/books/:id" => "books#update"
+#delete "/books/:id" => "books#destroy"
+resources :books do 
+  get 'page/:page', :action => :index, :on => :collection
+end
 root 'books#index'
+end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -61,4 +65,4 @@ root 'books#index'
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+#end
