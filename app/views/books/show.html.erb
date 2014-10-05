@@ -10,7 +10,8 @@
   Read all
   <%= link_to pluralize(@book.reviews.size, 'review'), 
                         book_reviews_path(@book) %>
-</p>
+  </p>
+  <p><label>Average Review:</label> <%= format_average_stars(@book) %></p>
 </article>
 
 <%= link_to 'All Books', books_path %> | <%= link_to 'Edit', edit_book_path(@book) %>
